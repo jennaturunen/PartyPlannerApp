@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PartyPlanner</title>
+    <link rel="stylesheet" href="css/bs-custom.css">
+    <script src="https://kit.fontawesome.com/8624131126.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header id="header">
+    <!-- SLIDESHOW -->
+    <div class="carousel">
+        <div class="carousel_slide">
+            <img src="images/b_party.jpg" alt="Birthday party">
+        </div>
+        <div class="carousel_slide">
+            <img src="images/halloween.jpg" alt="Halloween pumpkin">
+        </div>
+        <div class="carousel_slide">
+            <img src="images/joulu.jpg" alt="Christmas cookies">
+        </div>
+    </div>
+
+    <!-- LOG IN FORM -->
+    <div id="form-box" class="form_container">
+        <div class="button_container">
+            <div id="switchFormButton"></div>
+            <button id="move-login-btn" type="button" class="switch_button">Log in</button>
+            <button id="move-register-btn" type="button" class="switch_button">Register</button>
+        </div>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-google"></i>
+        </div>
+        <form id="login-form" class="input-group">
+            <input type="text" id="username" class="input-field" name="username" placeholder="Username" required>
+            <input type="password" id="passwd" class="input-field" name="password" placeholder="Enter password"
+                   required>
+            <label for="forgot-psw-cb">Forgot your password?</label>
+            <input id="forgot-psw-cb" type="checkbox" class="check_box">
+            <button id="submit-log-btn" type="submit" class="submit_button">LOG IN</button>
+        </form>
+        <!-- REGISTER-FORM -->
+        <form id="register-form" class="input-group">
+            <!--AT LEAST 3 LETTERS -->
+            <input id="register-username" type="text" class="input-field" name="username" pattern=".{3,}"
+                   placeholder="Username" required>
+            <!-- HAS TO BE EMAIL -->
+            <input id="register-email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                   class="input-field"
+                   name="email" placeholder="Enter email" required>
+            <!-- AT LEAST 8 LETTERS AND ONE CAPITAL LETTER -->
+            <input id="register-password1" type="password" class="input-field" name="password"
+                   pattern="(?=.*[A-Z]).{8,}" placeholder="Enter password" required>
+            <!-- HAS TO MATCH TO THE FIRST PASSWORD -->
+            <input id="register-password2" type="password" class="input-field" name="passwordSecond"
+                   pattern="(?=.*[A-Z]).{8,}" placeholder="Enter password again" required>
+            <label for="agree-terms-cb">I agree to the terms and conditions</label>
+            <input id="agree-terms-cb" type="checkbox" class="check_box" required>
+            <button type="submit" class="submit_button">REGISTER</button>
+        </form>
+    </div>
+</header>
+
+<!-- NAVIGATION BAR-->
+<nav id="navi">
+    <div id="navigation">
+        <div class="hamburger-menu">
+            <div class="line-hmenu half start"></div>
+            <div class="line-hmenu"></div>
+            <div class="line-hmenu half end"></div>
+        </div>
+    </div>
+    <button id="logo"><a id="logo-text" href="index.html">PARTY PLANNER</a></button>
+    <i class="fas fa-plus fa-2x " id="plus-icon"></i>
+</nav>
+
+<!-- SIDE-NAVIGATION CONTENT -->
+<div id="mysidenav" class="sidenav">
+    <div id="nav-profile-icon">
+        <i class="fas fa-user-circle"></i>
+    </div>
+    <h3 id="user-info"></h3>    <!-- Username -->
+    <form id="search-theme-form" class="find-form">
+        <h5>Search specific theme</h5>
+        <input id="search-theme-input" class="search-input" type="text" placeholder="Christmas">
+        <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <h5 class="find-form">OR</h5>
+    <form id="search-tag-form" class="find-form">
+        <h5>Search images by tag</h5>
+        <input id="search-tag-input" class="search-input" type="text" placeholder="cake">
+        <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <button id="logout-button" class="submit_button">LOG OUT</button>
+</div>
+
+<a href="#"><i id="move-to-top" class="fas fa-arrow-alt-circle-up"></i></a>
+
+<!-- MAIN CONTENT, PICTURE CARDS -->
+<main id="main-content">
+    <div id="card_container" class="card_area"></div>
+</main>
+
+
+<!-- OPENING CARDMODAL -->
+<div id="card-modal" class="modal">
+    <i id="close-modal" class="far fa-times-circle"></i>
+    <div class="modal-content"></div>
+    <p class="modal-text"></p>
+</div>
+
+<!-- ADDING PICTURE/POST -->
+<div id="adding_pic" class="fullpage-modal">
+    <form id="adding_form" enctype="multipart/form-data">
+        <h1>ADD PHOTO</h1>
+        <label>
+            <input type="text" name="description" placeholder="Write a caption">
+        </label>
+        <label>
+            <input type="text" name="tags" placeholder="#Add #your #hashtags">
+        </label>
+
+        <div id="main-themes">
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Kids" ><span>Kids</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Wedding"><span>Wedding</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Disney"><span>Disney</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Birthday"><span>Birthday</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Brunch"><span>Brunch</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Easter"><span>Easter</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Halloween"><span>Halloween</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Graduation"><span>Graduation</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Christmas"><span>Christmas</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Babyshower"><span>Baby Shower</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Barbeque"><span>Barbeque</span></label></div>
+            <div class="theme_checkbox"><label><input type="radio" name="theme" value="Spring"><span>Spring</span></label></div>
+        </div>
+
+        <div id="own-theme" class="theme_checkbox"><label><input type="text" name="theme" placeholder="Or write own theme"></label></div>
+
+        <label for="file-upload" class="custom-file-upload">
+            <i class="fa fa-cloud-upload"></i>Choose the Photo
+            <input id="file-upload" type="file" name="filename" accept="image/*"/>
+        </label>
+        <div id="file-upload-filename"></div>
+        <button id="add-photo-button" class="submit_button" type="submit">ADD</button>
+    </form>
+</div>
+
+
+<!-- USERS MYPAGE -->
+<div id="myPage" class="fullpage-modal">
+    <div id="myPage_content">
+        <div id="exit">
+            <i class="fas fa-chevron-left fa-3x"></i>
+        </div>
+        <h1 id="username-mypage"></h1>
+        <i class="fas fa-user-circle icon"></i>
+        <div id="card-container" class="card_area">
+            <!-- Users own posts -->
+        </div>
+    </div>
+</div>
+
+
+<!-- MODIFY POST-MODAL -->
+<div id="modify-post" class="fullpage-modal">
+    <form id="modify_form">
+        <h1>MODIFY POST</h1>
+        <label><input type="text" name="description" placeholder="Modify the caption"></label>
+        <label><input type="text" name="tags" placeholder="Modify hashtags"></label>
+        <label><input type="text" name="theme" placeholder="Change the theme"></label>
+        <input type="hidden" name="id">
+        <button id="submit-modify-btn" class="submit_button" type="submit">Submit</button>
+    </form>
+</div>
+
+
+<!-- ALL THE SCRIPTS -->
+<script src="js/serialize.js"></script>
+<script src="js/backend_main.js"></script>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

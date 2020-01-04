@@ -1,0 +1,727 @@
+$peach: #faaca8;
+$light_purple: #ddd6f3;
+$white: #fff;
+$grey: #777;
+$light_grey: #DCE2E6;
+$likered: #ff7b87;
+$black: #000;
+$darker_peach: darken($peach, 10%);
+$text_font: 'Lato', sans-serif;
+$user_font: 'Montserrat', sans-serif;
+
+body, html {
+  margin: 0;
+  font-family: $text_font;
+}
+
+* {
+  box-sizing: border-box
+}
+
+// CAROUSEL STYLES
+.carousel {
+  transition: 30s ease-in;
+}
+
+.carousel_slide {
+  animation: fading 10s;
+}
+
+@keyframes fading {
+  0% {
+    opacity: 0.2
+  }
+  50% {
+    opacity: 0.8
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+// FULL PAGE IMG
+.carousel_slide img {
+  width: 100%;
+  height: 100vh;
+}
+
+
+// LOGIN/REGISTER-FORM STYLES
+.form_container {
+  width: 380px;
+  height: 480px;
+  position: absolute;
+  background: $white;
+  padding: 5px;
+  overflow: hidden;
+  border-radius: 30px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button_container {
+  width: 220px;
+  margin: 35px auto;
+  position: relative;
+  box-shadow: 0 0 30px 9px rgb(255, 240, 244);
+  border-radius: 30px;
+}
+
+.switch_button {
+  padding: 10px 30px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+  font-family: $text_font;
+  font-size: .9rem;
+}
+
+#switchFormButton {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: linear-gradient(to right, $light_purple, $peach);
+  border-radius: 30px;
+  transition: .5s;
+}
+
+.social-icons {
+  text-align: center;
+
+  i {
+    width: 40px;
+    margin: 0 12px;
+    padding: 10px;
+    box-shadow: 0 0 20px 0 #ddd6f3;
+    cursor: pointer;
+    border-radius: 50%;
+    background: linear-gradient(to right, $light_purple, $peach);
+    color: $white;
+  }
+}
+
+.input-group {
+  top: 160px;
+  position: absolute;
+  width: 280px;
+  transition: .5s;
+}
+
+.submit_button {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: linear-gradient(to right, $light_purple, $peach);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  font-family: $text_font;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+
+  &:hover {
+    background: linear-gradient(to right, $light_purple, $darker_peach);
+  }
+}
+
+
+#login-form, #register-form {
+  left: 50px;
+  top: 180px;
+
+  .input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid $grey;
+    outline: none;
+    background: transparent;
+    font-family: $text_font;
+  }
+
+  .check_box {
+    margin: 30px 10px 30px 0;
+  }
+
+  label {
+    color: $grey;
+    font-size: 12px;
+    bottom: 100px;
+    position: absolute;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+
+  .submit_button {
+    margin-top: 30px;
+  }
+}
+
+#register-form {
+  left: 450px;
+  top: 150px;
+
+  .submit_button {
+    margin-top: 0;
+  }
+
+  label {
+    bottom: 69px;
+  }
+}
+
+
+// MAIN-CONTAINER STYLES
+#main-content {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+// CARD-CONTAINER AND IMAGES
+.card_area {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.card {
+  margin: 30px 10px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  width: 300px;
+  height: 310px;
+
+  i {
+    color: grey;
+    cursor: pointer;
+    font-size: 150%;
+    margin: 10px 7px;
+  }
+
+  .like {
+    color: $grey;
+    font-weight: 100;
+  }
+
+  .unlike {
+    color: $likered;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  img {
+    width: 300px;
+    height: 260px;
+    cursor: pointer;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .textlike {
+    font-size: 0.75rem;
+  }
+
+  .description {
+    font-weight: bold;
+    font-size: 0.9em;
+    margin: 0 5px;
+  }
+
+  .tags {
+    font-size: 0.8em;
+  }
+}
+
+// MODAL FOR IMAGE/POST
+.modal {
+  display: none; // Hidden by default
+  position: fixed;
+  z-index: 2; // Sit on top
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// IMAGE AND TEXTAREA IN MODAL
+.modal-content {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.modal-text {
+  margin: 10px;
+  font-size: 1.1em;
+  color: $white;
+}
+
+#close-modal {
+  color: $white;
+  font-size: 40px;
+  margin: 40px;
+  cursor: pointer;
+
+  &:hover {
+    color: $grey;
+  }
+}
+
+// FULLPAGE-MODAL
+.fullpage-modal {
+  display: none; // Hidden by default
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  font-family: $text_font;
+}
+
+// ADDING PICTURE/POST MODAL
+#adding_form {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 28px;
+  width: 450px;
+  height: 630px;
+  margin: 10px;
+
+  h1 {
+    margin: 0;
+  }
+
+  input {
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid $grey;
+    outline: none;
+    background: transparent;
+    font-family: $text_font;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  input[type="file"] {
+    visibility: hidden !important;
+    width: 0;
+  }
+
+  .custom-file-upload {
+    background: $peach;
+    padding: 20px 30px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+
+    &:hover {
+      background: $darker_peach;
+    }
+
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  #main-themes {
+    display: inline-block;
+    column-count: 2;
+  }
+
+  .theme_checkbox input {
+    margin-top: 20px;
+    width: unset;
+  }
+
+  #own-theme input{
+    margin: 0;
+  }
+
+  .submit_button {
+    width: 50%;
+    margin: 0;
+  }
+
+  label {
+    cursor: pointer;
+  }
+}
+
+
+// NAVIGATION BAR
+nav {
+  background-color: $white;
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  padding: 20px 25px;
+  position: relative;
+}
+
+#navigation {
+  padding-top: 10px;
+}
+
+#logo {
+  width: 300px;
+  border: none;
+  border-top: 2px solid $peach;
+  border-bottom: 2px solid $peach;
+  padding: 15px;
+  outline: none;
+  background-color: $white;
+
+  #logo-text {
+    cursor: pointer;
+    font-family: $text_font;
+    text-decoration: none;
+    color: $black;
+    font-size: 2em;
+    letter-spacing: 4px;
+  }
+}
+
+// SIDE NAVIGATION MENU
+.sidenav {
+  height: 450px;
+  width: 0;
+  position: absolute;
+  overflow: hidden;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  i {
+    cursor: pointer;
+  }
+
+  #user-info {
+    font-family: $user_font;
+    letter-spacing: 1.5px;
+    position: relative;
+    bottom: 9%;
+  }
+
+  .find-form {
+    position: relative;
+    bottom: 10%;
+    margin: 0;
+    font-size: inherit;
+
+    h5 {
+      letter-spacing: 1.4px;
+      font-size: 14px;
+      margin: 0 0 15px 0;
+    }
+  }
+
+  .search-input {
+    border-radius: 15px 0 0 15px;
+    line-height: 30px;
+    border-style: double;
+    border-color: $peach;
+    text-align: center;
+    outline: none;
+    font-family: inherit;
+    letter-spacing: 1px;
+  }
+
+  .search-button {
+    cursor: pointer;
+    position: absolute;
+    left: 80%;
+    width: 30%;
+    height: 53%;
+    border-radius: 0 15px 15px 0;
+    background-color: $peach;
+    border-style: none;
+    outline: none;
+
+    &:hover {
+      background-color: $darker_peach;
+    }
+  }
+
+  .submit_button {
+    width: 70%;
+    margin: 0;
+  }
+}
+
+// MOVEMENT FOR SIDENAVIGATION
+.show {
+  width: 250px;
+}
+
+.margin {
+  margin-left: 150px;
+}
+
+// PLUS-ICON
+#plus-icon {
+  color: $peach;
+  cursor: pointer;
+  font-size: 2.2em;
+  padding-top: 10px;
+
+  &:hover {
+    color: $darker_peach;
+  }
+}
+
+
+// HAMBURGER MENU ICON
+.hamburger-menu {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 330ms ease-out;
+
+  &:hover {
+    .line-hmenu {
+      background-color: $darker_peach;
+    }
+  }
+}
+
+.hamburger-menu.open {
+  transform: rotate(-45deg);
+}
+
+.line-hmenu {
+  background-color: $peach;
+  border-radius: 3px;
+  width: 100%;
+  height: 3px;
+}
+
+.line-hmenu.half {
+  width: 50%;
+}
+
+.line-hmenu.start {
+  transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+  transform-origin: right;
+}
+
+.open .line-hmenu.start {
+  transform: rotate(-90deg) translateX(3px);
+}
+
+.line-hmenu.end {
+  align-self: flex-end;
+  transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+  transform-origin: left;
+}
+
+.open .line-hmenu.end {
+  transform: rotate(-90deg) translateX(-3px);
+}
+
+
+// USERS MYPAGE
+#myPage_content {
+  display: flex;
+  background-color: $white;
+  align-items: center;
+  border-radius: 28px;
+  width: 80%;
+  position: absolute;
+  top: 0;
+  flex-direction: column;
+  margin: 20px 0;
+
+  #exit {
+    cursor: pointer;
+    width: 90%;
+    margin-top: 2rem;
+
+    &:hover {
+      color: $grey;
+    }
+  }
+
+  h1 {
+    font-family: $user_font;
+    letter-spacing: 3px;
+  }
+
+  .icon {
+    font-size: 100px;
+    margin-bottom: 4rem;
+  }
+}
+
+.myprofile_cards {
+  height: 360px;
+}
+
+.buttons_p {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mod_upd_btn {
+  padding: 10px 40px;
+  cursor: pointer;
+  background: linear-gradient(to right, $light_purple, $peach);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  font-family: $text_font;
+  letter-spacing: 1px;
+  font-weight: bold;
+
+  &:hover {
+    background: linear-gradient(to right, $light_purple, $darker_peach);
+  }
+}
+
+// MODIFY PICTURE/POST MODAL
+#modify_form {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 28px;
+  width: 450px;
+  height: 500px;
+  margin: 10px;
+
+  input {
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid $grey;
+    outline: none;
+    background: transparent;
+    font-family: $text_font;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .submit_button {
+    margin: 0;
+    width: 70%;
+  }
+}
+
+
+// USER-PROFILE ICON
+.fa-user-circle {
+  font-size: 70px;
+  background: -webkit-linear-gradient(left, $light_purple, $peach);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &:hover {
+    background: -webkit-linear-gradient(left, $light_purple, $darker_peach);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+// MOVE TO TOP ICON
+#move-to-top {
+  display: none;
+  position: fixed;
+  left: 2%;
+  bottom: 5%;
+  font-size: 50px;
+  background: -webkit-linear-gradient(left, $light_purple, $peach);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &:hover {
+    background: -webkit-linear-gradient(left, $light_purple, $darker_peach);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+
+
+
+/* MEDIA RULES*/
+
+/* On screens that are 650px wide or less */
+@media screen and (max-width: 650px) {
+
+  .show {
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+  }
+
+  .margin {
+    margin: 0;
+  }
+
+  .sidenav .submit_button {
+    position: relative;
+    bottom: 14%;
+  }
+
+  #logo {
+    display: none;
+  }
+}
+
+/* On screens that are 400px wide or less */
+@media screen and (max-width: 400px) {
+
+  #myPage_content {
+    width: 100%;
+  }
+
+  #move-to-top {
+    visibility: hidden;
+  }
+}
+
+

@@ -15,11 +15,11 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.use(express.static('uploads'));
-app.use('/thumbnails', express.static('thumbnails'));   //jaetaan thumbnails kansio
+app.use('/thumbnails', express.static('thumbnails'));   //share thumbnails folder
 
-app.use('/pic',passport.authenticate('jwt', {session: false}),  picRoute);    // Kun ei haluta käyttää sessionia -> session:false
+app.use('/pic',passport.authenticate('jwt', {session: false}),  picRoute);
 app.use('/like', passport.authenticate('jwt', {session: false}), likeRoute);
-app.use('/user',passport.authenticate('jwt', {session: false}),  userRoute);  // < ilman tokenia ei pääse kirjautumaan
-app.use('/auth', authRoute);    // Login on suojaamatta
+app.use('/user',passport.authenticate('jwt', {session: false}),  userRoute);  // < Token is needed to login
+app.use('/auth', authRoute);    // Login is unprotected
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
