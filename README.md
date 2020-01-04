@@ -13,4 +13,23 @@ Used techniques:
 - HTML
 - SQL + PhpMyAdmin
 
+<h3>LogIn/Registration</h3>
+<img src="images/login.png">
+
+<h3>Mainview/Sidenavigation</h3>
+<img src="images/front.png">
+
+<h3>Likes</h3>
+<img src="images/likes.png">
+
+<h3>Add-form</h3>
+<img src="images/add.png">
+
+<h3>Mypage</h3>
+<img src="images/mypage.png">
+
+
+
+
+
 Started as school project that was made in pairs and has been upgraded since. 
